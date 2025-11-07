@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather Predictor (Frontend)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Weather Predictor (HTML/CSS/JS)</h1>
+    <p class="lead">A tiny demo that predicts temperature (°C) from a few weather inputs using a pre-trained linear model embedded in JavaScript.</p>
+
+    <form id="predict-form">
+      <div class="grid">
+        <label>Pressure (hPa)<input type="number" step="0.1" id="pressure" value="1013"></label>
+        <label>Humidity (%)<input type="number" step="0.1" id="humidity" value="50"></label>
+        <label>Wind speed (m/s)<input type="number" step="0.1" id="wind" value="3"></label>
+        <label>Precipitation (mm)<input type="number" step="0.01" id="precip" value="0"></label>
+        <label>Cloud (%)<input type="number" step="0.1" id="cloud" value="40"></label>
+        <label>Hour (0-23)<input type="number" id="hour" min="0" max="23" value="12"></label>
+        <label>Day of year (1-366)<input type="number" id="doy" min="1" max="366" value="180"></label>
+      </div>
+      <div class="actions">
+        <button type="button" id="predict-btn">Predict</button>
+        <button type="button" id="sample-btn">Fill sample</button>
+      </div>
+    </form>
+
+    <div id="output" class="output">Prediction: — °C</div>
+
+    <section class="info">
+      <h3>Model info</h3>
+      <p>Linear regression trained on synthetic hourly data. Embedded coefficients shown below.</p>
+      <pre id="coeffs"></pre>
+      <p>R² on training synthetic data: <strong id="r2">0.664</strong></p>
+      <p class="note">Note: This is a demo. For production use real historical datasets and more advanced models.</p>
+    </section>
+
+    <footer class="foot">Made with ❤️ — frontend-only, no backend required.</footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
